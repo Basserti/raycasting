@@ -13,7 +13,7 @@
 RayCastingWindow::RayCastingWindow(int width, int height)
 : Window(width, height)
 {
-	_map = std::make_shared<Map>("map01.txt");
+	_map = std::make_shared<Map>("map.txt");
 	_player = std::make_shared<Player>(_map);
 	_wall_texture = std::make_shared<Texture>(_renderer, "wall.png");
 }
