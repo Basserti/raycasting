@@ -38,11 +38,11 @@ void RayCastingWindow::render()
 
 			betta = _player->dir() + gamma;
 
-			if ( -EPSILON <= sin( betta ) and sin( betta ) <= EPSILON){ //Если игрок смотрит горизонтально
+			if ( -EPSILON <= sin( betta ) and sin( betta ) <= EPSILON){
 				D_h = INFINITY;
 			}
 			else{
-				//определяем как кидать луч для горизонтальных линий сетки
+
 				if ( sin( betta ) > EPSILON ){
 					dy = 1;
 					ry = floor( _player->y() ) + EPSILON;
@@ -57,7 +57,7 @@ void RayCastingWindow::render()
 					rx = _player->x() - ( ry - _player->y() ) * dx;
 				}
 
-				//бросаем луч
+
 				do{
 					rx += dx;
 					ry += dy;
@@ -66,13 +66,13 @@ void RayCastingWindow::render()
 				tx = rx - floor(rx);
 			}
 
-			//Находим расстояние от игрока до пересечения луча с вертикальной стеной
-			if ( -EPSILON <= cos( betta ) and cos( betta ) <= EPSILON){ //Если игрок смотрит вертикольно
+
+			if ( -EPSILON <= cos( betta ) and cos( betta ) <= EPSILON){
 				D_v = INFINITY;
 			}
 			else{
 
-				//определяем как кидать луч для вертикальных линий сетки
+
 				if ( cos( betta ) > EPSILON){
 					dx = 1;
 					rx = floor( _player->x() ) + EPSILON;
@@ -87,7 +87,7 @@ void RayCastingWindow::render()
 					ry = _player->y() - ( rx - _player->x() ) * dy;
 				}
 
-				//бросаем луч
+
 				do{
 					rx += dx;
 					ry += dy;
@@ -105,9 +105,7 @@ void RayCastingWindow::render()
 			}
 
 			draw_textured_col(col, h, tx);
-			//Сравниваем расстояния до горизонтальной стены и до вертикальной --- до какой ближе ту и рисуем
-			//draw_col(col, h);
-			//draw_textured_col(col, h, tx);
+
 		}
 
 	// Рисование карты
