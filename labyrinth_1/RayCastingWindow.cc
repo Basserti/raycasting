@@ -22,9 +22,9 @@ void RayCastingWindow::render()
 
 	SDL_Rect r_sky { 0, 0, width(), height() / 2 };
 	SDL_Rect r_floor { 0, height() / 2, width(), height() / 2 };
-	SDL_SetRenderDrawColor(_renderer.get(), 128, 128, 128, 255);
+	SDL_SetRenderDrawColor(_renderer.get(), 0, 0, 255, 0);
 	SDL_RenderFillRect(_renderer.get(), &r_sky);
-	SDL_SetRenderDrawColor(_renderer.get(), 150 , 150, 150, 255);
+	SDL_SetRenderDrawColor(_renderer.get(), 0 , 255, 0, 255);
 	SDL_RenderFillRect(_renderer.get(), &r_floor);
 
 	SDL_SetRenderDrawBlendMode(_renderer.get(), SDL_BLENDMODE_BLEND);
